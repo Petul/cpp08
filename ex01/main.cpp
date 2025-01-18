@@ -6,16 +6,18 @@
 /*   By: pleander <pleander@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:32:47 by pleander          #+#    #+#             */
-/*   Updated: 2025/01/18 18:33:23 by pleander         ###   ########.fr       */
+/*   Updated: 2025/01/18 21:50:44 by pleander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <array>
 #include <iostream>
 
 #include "Span.hpp"
 
 int main(void)
 {
+	srand(time(0));
 	{
 		std::cout << "Subject example: " << std::endl;
 		Span sp = Span(5);
@@ -28,12 +30,37 @@ int main(void)
 		std::cout << sp.longestSpan() << std::endl;
 	}
 	{
-		srand(time(0));
+		std::cout << "\nAdding 10 000 numbers" << std::endl;
 		Span s(10000);
 		for (int i = 0; i < 10000; i++)
 		{
 			s.addNumber(std::rand());
 		}
+		std::cout << s.longestSpan() << std::endl;
+		std::cout << s.shortestSpan() << std::endl;
+	}
+	{
+		std::cout << "\nAdding a range of numbers" << std::endl;
+		Span s(10000);
+		std::vector<int> vec;
+		for (int i = 0; i < 10000; i++)
+		{
+			vec.push_back(std::rand());
+		}
+		s.addNumbers(vec.begin(), vec.end());
+		std::cout << s.longestSpan() << std::endl;
+		std::cout << s.shortestSpan() << std::endl;
+	}
+
+	{
+		std::cout << "\nAdding another range of numbers" << std::endl;
+		Span s(10000);
+		std::array<int, 10000> arr;
+		for (int i = 0; i < 10000; i++)
+		{
+			arr[i] = std::rand();
+		}
+		s.addNumbers(arr.begin(), arr.end());
 		std::cout << s.longestSpan() << std::endl;
 		std::cout << s.shortestSpan() << std::endl;
 	}

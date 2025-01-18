@@ -6,7 +6,7 @@
 /*   By: pleander <pleander@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:22:52 by pleander          #+#    #+#             */
-/*   Updated: 2025/01/18 17:16:20 by pleander         ###   ########.fr       */
+/*   Updated: 2025/01/18 21:52:29 by pleander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class Span
 	~Span();
 
 	void addNumber(int n);
+
+	template <typename Iterator>
+	void addNumbers(Iterator begin, Iterator end);
 	int shortestSpan();
 	int longestSpan();
 
@@ -29,3 +32,12 @@ class Span
 	std::vector<int> vec_;
 	unsigned int size_;
 };
+
+template <typename Iterator>
+void Span::addNumbers(Iterator begin, Iterator end)
+{
+	for (auto it = begin; it != end; it++)
+	{
+		addNumber(*it);
+	}
+}
