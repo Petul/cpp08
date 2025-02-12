@@ -22,7 +22,7 @@ typename T::iterator easyfind(T& container, int to_find)
 	if (it == container.end() && *it == *container.end())
 	{
 		throw std::runtime_error{"Error: could not find value " +
-		                         std::to_string(to_find) + " in container "};
+		                         std::to_string(to_find) + " in container."};
 	}
 	return (it);
 }
