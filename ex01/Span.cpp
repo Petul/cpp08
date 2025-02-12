@@ -13,7 +13,6 @@
 #include "Span.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <numeric>
 #include <stdexcept>
 
