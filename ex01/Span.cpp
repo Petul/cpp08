@@ -16,6 +16,10 @@
 #include <numeric>
 #include <stdexcept>
 
+Span::Span()
+{
+}
+
 Span::Span(unsigned int N) : size_{N}
 {
 }
@@ -51,19 +55,19 @@ void Span::addNumber(int n)
 	this->vec_.insert(it, n);
 }
 
-int Span::shortestSpan()
+unsigned int Span::shortestSpan()
 {
 	if (this->vec_.size() == 0)
 	{
 		throw std::runtime_error("Error: Span is empty");
 	}
-	std::vector<int> diff(this->size_ - 1);
+	std::vector<unsigned int> diff(this->size_ - 1);
 	std::adjacent_difference(this->vec_.begin(), this->vec_.end(),
 	                         diff.begin());
 	return (*std::min_element(diff.begin(), diff.end()));
 }
 
-int Span::longestSpan()
+unsigned int Span::longestSpan()
 {
 	if (this->vec_.size() == 0)
 	{

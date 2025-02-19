@@ -25,10 +25,11 @@ class Span
 
 	template <typename Iterator>
 	void addNumbers(Iterator begin, Iterator end);
-	int shortestSpan();
-	int longestSpan();
+	unsigned int shortestSpan();
+	unsigned int longestSpan();
 
    private:
+	Span();
 	std::vector<int> vec_;
 	unsigned int size_;
 };

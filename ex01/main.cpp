@@ -12,6 +12,7 @@
 
 #include <array>
 #include <iostream>
+#include <limits>
 
 #include "Span.hpp"
 
@@ -26,6 +27,17 @@ int main(void)
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+	}
+	{
+		std::cout << "\nLarge numbers: " << std::endl;
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.addNumber(std::numeric_limits<int>::max());
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(std::numeric_limits<int>::min());
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 	}
