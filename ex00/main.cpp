@@ -20,8 +20,17 @@
 int main(void)
 {
 	std::vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8};
-	auto it = easyfind(vec, 5);
-	std::cout << *it << std::endl;
+	std::vector<int>::iterator it;
+	try
+	{
+		it = easyfind(vec, 5);
+		std::cout << *it << std::endl;
+	}
+	catch (std::runtime_error &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 	try
 	{
 		it = easyfind(vec, 0);
@@ -31,6 +40,7 @@ int main(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
+
 	try
 	{
 		it = easyfind(vec, 8);
