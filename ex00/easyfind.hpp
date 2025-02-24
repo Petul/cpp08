@@ -19,7 +19,7 @@ template <typename T>
 typename T::iterator easyfind(T& container, int to_find)
 {
 	auto it = std::find(container.begin(), container.end(), to_find);
-	if (it == container.end() && *it == *container.end())
+	if (it == container.end())
 	{
 		throw std::runtime_error{"Error: could not find value " +
 		                         std::to_string(to_find) + " in container."};
