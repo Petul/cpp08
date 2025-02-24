@@ -61,10 +61,12 @@ unsigned int Span::shortestSpan()
 	{
 		throw std::runtime_error("Error: Span is empty");
 	}
-	std::vector<unsigned int> diff(this->vec_.size() - 1);
+	std::vector<unsigned int> diff(this->vec_.size());
 	std::adjacent_difference(this->vec_.begin(), this->vec_.end(),
 	                         diff.begin());
-	return (*std::min_element(diff.begin(), diff.end()));
+	return (*std::min_element(diff.begin() + 1,
+	                          diff.end()));  // first element of diff vector is
+	                                         // same as first element of vec
 }
 
 unsigned int Span::longestSpan()

@@ -55,6 +55,15 @@ int main(void)
 			std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 		}
 		{
+			std::cout << "\nFirst element 0: " << std::endl;
+			Span sp = Span(5);
+			sp.addNumber(0);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+			std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+		}
+		{
 			std::cout << "\nAdding 10 000 numbers" << std::endl;
 			Span s(10000);
 			for (int i = 0; i < 10000; i++)
